@@ -896,6 +896,161 @@ body {
   transform: translateY(0);
 }
 
+/* --- TECHNOLOGY BOX --- */
+.section-tech {
+  background: #4d8ccf;
+  padding: 6rem 10%;
+  display: flex;
+  justify-content: center;
+  color: #fff;
+}
+
+.tech-box {
+  background: #0b2f56;
+  border: 3px solid #ffffff;
+  border-radius: 8px;
+  padding: 3rem;
+  max-width: 650px;
+}
+
+.tech-title {
+  font-size: 2.3rem;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.tech-intro {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* Skjult innhold */
+.tech-hidden {
+  display: none;
+  font-size: 1.5rem;
+  line-height: 1.6;
+  margin-top: 1rem;
+}
+
+/* Knapp */
+.tech-toggle {
+  display: block;
+  margin: 2rem auto 0 auto;
+  padding: 0.8rem 2.5rem;
+  background: #0b2f56;
+  border: 2px solid #fff;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tech-toggle:hover {
+  background: #fff;
+  color: #0b2f56;
+}
+
+/* --- FUTURE SECTION --- */
+.section-future {
+  background: #4d8ccf;
+  color: #fff;
+  padding: 8rem 12%;
+  text-align: center;
+  line-height: 1.7;
+}
+
+/* Tittel */
+.future-title {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Intro */
+.future-intro {
+  max-width: 700px;
+  margin: 0 auto 4rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+/* Snakkeboble */
+.speech-bubble {
+  max-width: 750px;
+  margin: 3rem auto;
+  background: #ffffff;
+  color: #0b2f56;
+  padding: 2rem 2.5rem;
+  border-radius: 30px;
+  border-top-left-radius: 50px;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+/* Snakkeboble-tuppen */
+.speech-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -30px;
+  left: 60px;
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-top: 30px solid #ffffff;
+  filter: drop-shadow(0 6px 6px rgba(0, 0, 0, 0.25));
+}
+
+/* Mellomtekst */
+.future-pause {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin: 3rem 0 1rem;
+}
+
+/* --- A WORLD BELOW THE WAVES --- */
+.section-belowwaves {
+  background: #0b2f56;
+  color: #fff;
+  padding: 6rem 10% 0;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.belowwaves-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-bottom: 4rem;
+}
+
+.belowwaves-title {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 2rem;
+}
+
+.belowwaves-text {
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1.6;
+  margin-bottom: 1.8rem;
+}
+
+/* Bildet nederst */
+.belowwaves-image {
+  width: 100%;
+  display: block;
+  margin-top: 4rem;
+}
+
 /* Responsivt */
 @media (max-width: 900px) {
   .section-brede {

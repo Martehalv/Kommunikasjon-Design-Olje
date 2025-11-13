@@ -303,3 +303,24 @@ if (driftSection) {
   );
   driftObserver.observe(driftSection);
 }
+
+// --- Technology box toggle ---
+const techToggle = document.querySelector(".tech-toggle");
+const techHidden = document.querySelector(".tech-hidden");
+
+techToggle.addEventListener("click", () => {
+  const isHidden =
+    techHidden.style.display === "none" || techHidden.style.display === "";
+
+  if (isHidden) {
+    techHidden.style.display = "block";
+    techToggle.textContent = "Show less";
+  } else {
+    techHidden.style.display = "none";
+    techToggle.textContent = "Show more";
+    window.scrollTo({
+      top: techToggle.parentElement.offsetTop - 200,
+      behavior: "smooth",
+    });
+  }
+});
