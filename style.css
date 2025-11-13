@@ -3,7 +3,7 @@ body {
   font-family: "Inter", "Arial", sans-serif;
   color: white;
   background: #0d3b66;
-  overflow-x: hidden;
+  overflow-x: hidden; /* denne kan du beholde alene */
 }
 
 /* --- SCROLLYTELLING INTRO --- */
@@ -95,6 +95,8 @@ body {
   background: #4d8ccf;
   color: #fff;
   padding: 5rem 12%;
+  padding-bottom: 3rem;
+  margin-bottom: 0;
   position: relative;
   line-height: 1.7;
   z-index: 1; /* under scrollytelling */
@@ -180,6 +182,647 @@ body {
   z-index: 21;
 }
 
+/* --- LIFE ON BOARD SEKSJON --- */
+.section-life {
+  background: #4d8ccf;
+  color: #fff;
+  padding: 8rem 8%;
+  margin-top: 0;
+  padding-top: 5rem;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  min-height: 150vh; /* gir plass til scroll-animasjonen */
+}
+
+/* BÅT-BILDET MED BLÅ GLOW */
+.ship-image {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-150%) scale(1.1); /* starter større og utenfor venstre */
+  width: 95%; /* litt større */
+  max-width: 850px;
+  opacity: 0;
+  transition: transform 1.8s ease-out, opacity 1.2s ease;
+  filter: drop-shadow(0 0 35px rgba(139, 191, 254, 0.8)); /* BLÅ GLOW */
+}
+
+.life-title {
+  font-size: 4rem;
+  font-weight: 900;
+  margin-bottom: 4rem;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.ship-wrapper {
+  width: 100%;
+  position: relative;
+  height: 400px;
+  overflow: visible;
+}
+
+.ship-image {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-150%) scale(1);
+  width: 85%;
+  max-width: 750px;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  filter: drop-shadow(0 0 25px rgba(0, 0, 0, 0.4));
+}
+
+.life-text {
+  max-width: 750px;
+  margin: 4rem auto 0;
+  font-size: 1.35rem;
+  line-height: 1.6;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease;
+}
+
+.section-life.visible .life-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- CREW SEKSJON --- */
+.section-crew {
+  background: #4d8ccf;
+  color: #fff;
+  padding: 8rem 8%;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Wrapper for bildet */
+.crew-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Blå glød bak crew-bildet */
+.crew-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(
+    circle,
+    rgba(80, 160, 255, 0.35) 0%,
+    rgba(80, 160, 255, 0) 70%
+  );
+  transform: translate(-50%, -50%);
+  filter: blur(80px);
+  z-index: 0;
+}
+
+/* Selve bildet */
+.crew-image {
+  width: 85%;
+  max-width: 700px;
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1.2s ease;
+}
+
+/* Tekst under bildet */
+.crew-text {
+  max-width: 750px;
+  margin: 3rem auto 0;
+  font-size: 1.35rem;
+  line-height: 1.6;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1.2s ease 0.3s;
+}
+
+/* Når seksjonen er synlig */
+.section-crew.visible .crew-image,
+.section-crew.visible .crew-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- SLIDESHOW-SEKSJON --- */
+.section-slideshow {
+  background: #4d8ccf;
+  color: #fff;
+  padding: 5rem 0;
+  text-align: center;
+  position: relative;
+}
+
+.slideshow-container {
+  max-width: 900px;
+  position: relative;
+  margin: 0 auto;
+  overflow: visible; /* 👈 VIKTIG endring - lar pilene vises utenfor */
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Bildene */
+.slide {
+  display: none;
+}
+
+.slide img {
+  width: 100%;
+  height: 550px; /* fast høyde for alle bilder */
+  object-fit: cover; /* fyller uten å strekke */
+  border-radius: 12px;
+  vertical-align: middle;
+}
+
+/* Fade mellom bilder */
+.fade {
+  animation-name: fade;
+  animation-duration: 0.8s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Piler utenfor bildene */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ffffff;
+  font-size: 2.8rem; /* større piler */
+  font-weight: 400;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(13, 59, 102, 0.75);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 20;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+}
+
+/* plassering */
+.prev {
+  left: -80px;
+}
+
+.next {
+  right: -80px;
+}
+
+.prev:hover,
+.next:hover {
+  background: #ffffff;
+  color: #0d3b66;
+  border-color: #ffffff;
+  box-shadow: 0 0 25px rgba(100, 170, 255, 0.9);
+  transform: translateY(-50%) scale(1.15);
+}
+
+/* Dots under slideshow */
+.slideshow-dots {
+  text-align: center;
+  margin-top: 1.8rem;
+}
+
+.dot {
+  height: 14px;
+  width: 14px;
+  margin: 0 6px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.4s;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* --- EXTRACTION SEKSJON --- */
+.section-extraction {
+  background: #4d8ccf;
+  color: #fff;
+  padding: 6rem 10%;
+  text-align: center;
+  line-height: 1.7;
+  position: relative;
+}
+
+.extraction-title {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 2rem;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.intro-text {
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+
+.quote {
+  max-width: 750px;
+  margin: 0 auto;
+  font-size: 1.35rem;
+  font-weight: 600;
+  position: relative;
+}
+
+/* --- ANIMERTE TALL --- */
+.slide-number {
+  display: inline-block;
+  font-weight: 900;
+  color: #fff;
+  opacity: 0;
+  transition: transform 2.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 1.8s ease;
+  -webkit-text-stroke: 1.5px #0b2f56;
+  text-shadow: 0 0 10px rgba(11, 47, 86, 0.4);
+}
+
+/* Startposisjoner: langt utenfor skjermen */
+.num5000 {
+  transform: translateX(-120vw);
+}
+
+.num6000 {
+  transform: translateX(120vw);
+}
+
+/* Når seksjonen blir synlig */
+.section-extraction.visible .num5000 {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.section-extraction.visible .num6000 {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* --- DEPTH SEKSJON (5000 m - 6000 m) --- */
+.section-depth {
+  background: #4d8ccf;
+  color: #fff;
+  padding: 6rem 8%;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.depth-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+}
+
+.depth-ship {
+  width: 100%;
+  max-width: 650px;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 0 30px rgba(0, 0, 0, 0.3));
+}
+
+/* --- Måleboksen (linjene) --- */
+.depth-box {
+  position: absolute;
+  right: 38%;
+  top: 66.5%;
+  width: 90px;
+  height: 140px;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+
+.section-depth.visible .depth-box {
+  opacity: 1;
+}
+
+/* Linjene */
+.depth-line {
+  position: absolute;
+  background: #0b2f56;
+}
+
+.depth-line.top,
+.depth-line.bottom {
+  width: 60px;
+  height: 3px;
+  right: 0; /* peker mot røret */
+}
+
+.depth-line.side {
+  width: 3px;
+  height: 130px;
+  right: 0;
+  top: 5px;
+}
+
+.depth-line.top {
+  top: 0;
+}
+
+.depth-line.bottom {
+  bottom: 0;
+}
+
+/* Diamantformede ender */
+.depth-diamond {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #0b2f56;
+  transform: rotate(45deg);
+  right: -6px;
+}
+
+.depth-diamond.top {
+  top: -5px;
+}
+
+.depth-diamond.bottom {
+  bottom: -5px;
+}
+
+/* --- Label (5000 m – 6000 m) --- */
+.depth-label {
+  position: absolute;
+  left: 67%; /* flyttet mer til høyre */
+  top: 72%; /* flyttet litt opp */
+  font-weight: 900;
+  font-size: 1.4rem;
+  color: #fff;
+  -webkit-text-stroke: 2px #0b2f56;
+  text-shadow: 0 0 10px rgba(11, 47, 86, 0.4);
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+
+.section-depth.visible .depth-label {
+  opacity: 1;
+}
+
+/* --- Teksten under båten --- */
+.depth-text {
+  max-width: 700px;
+  margin: 3rem auto 0;
+  font-size: 1.25rem;
+  line-height: 1.7;
+}
+
+.depth-text p {
+  margin-bottom: 1.6rem;
+}
+
+/* --- Animasjon: fade/slide inn ved scroll --- */
+
+/* Måleboksen: fader inn */
+.depth-box {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.section-depth.visible .depth-box {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Teksten (5000 m – 6000 m): kommer fra høyre */
+.depth-label {
+  opacity: 0;
+  transform: translateX(250px); /* 👈 starter lenger ute til høyre */
+  transition: transform 2.6s ease-out, opacity 1.2s ease;
+}
+
+.section-depth.visible .depth-label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* --- PRECISION SEKSJON --- */
+.section-precision {
+  background: #0b2f56;
+  color: #fff;
+  height: 500vh; /* Seksjonen “holder igjen” så man får scrollet rolig */
+  position: relative;
+  overflow: visible; /* MÅ være visible for sticky å fungere */
+  line-height: 1.7;
+}
+
+/* Innholdet holder seg midt på skjermen */
+.precision-content {
+  position: sticky;
+  top: 20%; /* omtrent midt på siden */
+  transform: translateY(0);
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: left;
+}
+
+/* Tittel */
+.precision-title {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  -webkit-text-stroke: 1.5px #4d8ccf;
+}
+
+/* Intro-tekst */
+.precision-intro {
+  font-size: 1.3rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Punktliste uten standard bullets */
+.precision-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2.5rem 0;
+}
+
+/* Punktene starter skjult */
+.precision-list li {
+  position: relative;
+  font-size: 1.3rem;
+  font-weight: 400;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+  margin-bottom: 1.2rem;
+  padding-left: 28px; /* plass til prikk */
+}
+
+/* Liten hvit prikk */
+.precision-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+  transform: scale(0);
+  transition: transform 0.6s ease-out;
+}
+
+/* Når punktet vises */
+.precision-list li.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.precision-list li.visible::before {
+  transform: scale(1);
+}
+
+/* Sitat-tekst etter punktlisten */
+.precision-quote {
+  font-size: 1.2rem;
+  margin-top: 2rem;
+  line-height: 1.8;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+.precision-quote.visible {
+  opacity: 1;
+}
+
+/* --- COOPERATION SEKSJON --- */
+.section-cooperation {
+  background: #0b2f56;
+  color: #fff;
+  padding: 8rem 10%;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.coop-wrapper {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto 3rem auto;
+}
+
+/* Bilde med glød, fader inn men beholder mørk bakgrunnseffekt */
+.coop-image {
+  width: 100%;
+  max-width: 700px;
+  opacity: 0;
+  transform: scale(0.5);
+  filter: brightness(0.2) drop-shadow(0 0 35px rgba(100, 170, 255, 0.7));
+  transition: opacity 1.5s ease, transform 1.5s ease, filter 0.3s linear;
+}
+
+/* Når seksjonen er synlig */
+.section-cooperation.visible .coop-image {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Teksten */
+.coop-title {
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  background: #4d8ccf;
+  display: inline-block;
+  padding: 0.4rem 1.2rem;
+  border-radius: 6px;
+}
+
+.coop-text p {
+  max-width: 750px;
+  margin: 0 auto;
+  font-size: 1.25rem;
+  line-height: 1.7;
+}
+
+/* --- SAFETY SEKSJON --- */
+.section-safety {
+  background: #4d8ccf;
+  color: #fff;
+  padding: 8rem 15%;
+  line-height: 1.8;
+  position: relative;
+  overflow: hidden;
+}
+
+.safety-content {
+  max-width: 750px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.safety-title {
+  font-size: 2.8rem;
+  font-weight: 900;
+  margin-bottom: 2rem;
+}
+
+.safety-content p {
+  font-size: 1.25rem;
+  margin-bottom: 1.8rem;
+}
+
+/* Bilde som kommer inn fra høyre */
+.safety-image-wrapper {
+  width: 100%;
+  margin: 2rem 0 3rem;
+  display: flex;
+  justify-content: center;
+  overflow: visible;
+}
+
+.safety-image {
+  width: 80%;
+  max-width: 500px;
+  border-radius: 6px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transform: translateX(150%);
+  opacity: 0;
+  transition: transform 1.6s cubic-bezier(0.25, 1, 0.3, 1), opacity 1.2s ease;
+}
+
+.section-safety.visible .safety-image {
+  transform: translateX(0);
+  opacity: 1;
+}
+
 /* Responsivt */
 @media (max-width: 900px) {
   .section-brede {
@@ -200,5 +843,23 @@ body {
   .popup-box {
     position: static;
     margin: 1rem auto;
+  }
+}
+
+@media (max-width: 1000px) {
+  .prev {
+    left: -55px;
+  }
+  .next {
+    right: -55px;
+  }
+}
+
+@media (max-width: 700px) {
+  .prev,
+  .next {
+    font-size: 2rem;
+    width: 45px;
+    height: 45px;
   }
 }
