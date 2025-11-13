@@ -10,44 +10,62 @@ window.addEventListener("scroll", () => {
   const sectionHeight = section.offsetHeight;
   const sectionBottom = sectionTop + sectionHeight;
 
-  // utenfor hele området
-  if (y < sectionTop || y >= sectionBottom) {
-    background.style.opacity = 0;
+  // utenfor hele seksjonen → skjul alt
+  if (y < sectionTop || y > sectionBottom) {
     textDisplay.style.opacity = 0;
-    steps.forEach((s) => (s.style.opacity = 0));
+    steps.forEach((s) => s.classList.remove("active"));
     return;
   }
 
-  background.style.opacity = 1;
-
-  // finn hvilket step som gjelder
+  // finn hvilket "step" som er aktivt nå
   let activeStep = -1;
   steps.forEach((step, i) => {
     const stepTop = sectionTop + i * vh;
     const stepBottom = stepTop + vh;
-    if (y >= stepTop && y < stepBottom) activeStep = i;
+    if (y >= stepTop && y < stepBottom) {
+      activeStep = i;
+    }
   });
 
-  // nullstill
-  steps.forEach((s) => (s.style.opacity = 0));
-  textDisplay.style.opacity = 0;
+  // vis gjeldende tekst eller blå boks
+  steps.forEach((step, i) => {
+    const isSpecial = step.classList.contains("special-step");
 
-  if (activeStep >= 0) {
-    const step = steps[activeStep];
-    if (step.classList.contains("special-step")) {
-      // vis blå boks
-      step.style.opacity = 1;
+    if (i === activeStep) {
+      if (isSpecial) {
+        step.classList.add("active");
+        textDisplay.style.opacity = 0;
+      } else {
+        textDisplay.textContent = step.dataset.text;
+        textDisplay.style.opacity = 1;
+      }
     } else {
-      // vis vanlig tekst
-      textDisplay.textContent = step.dataset.text;
-      textDisplay.style.opacity = 1;
+      if (isSpecial) step.classList.remove("active");
     }
-  }
+  });
+});
 
-  // fade ut alt helt på slutten
-  const lastStepEnd = sectionTop + steps.length * vh;
-  if (y >= lastStepEnd - vh * 0.2) {
-    background.style.opacity = 0;
-    steps[steps.length - 1].style.opacity = 0;
+// --- Brede seksjon animasjon ---
+const bredeSection = document.querySelector(".section-brede");
+const popup = document.getElementById("rlwi-info");
+const rlwiWord = document.querySelector(".rlwi");
+
+function checkVisibility() {
+  const rect = bredeSection.getBoundingClientRect();
+  if (rect.top < window.innerHeight * 0.7 && rect.bottom > 0) {
+    bredeSection.classList.add("visible");
   }
+}
+
+window.addEventListener("scroll", checkVisibility);
+checkVisibility();
+
+// --- Popup-boksen ---
+rlwiWord.addEventListener("click", (e) => {
+  popup.style.display = popup.style.display === "block" ? "none" : "block";
+  e.stopPropagation();
+});
+
+document.body.addEventListener("click", () => {
+  popup.style.display = "none";
 });

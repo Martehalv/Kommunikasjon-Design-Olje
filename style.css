@@ -6,39 +6,39 @@ body {
   overflow-x: hidden;
 }
 
-/* Høyde: 4 tekster + blå boks = 500vh */
+/* --- SCROLLYTELLING INTRO --- */
 .scrollytelling {
   position: relative;
-  height: 500vh;
+  height: 650vh; /* plass til alle tekstene + blå boks */
+  z-index: 10; /* over alt annet */
+  overflow: visible;
 }
 
 /* Bakgrunnsbildet */
 .background {
-  position: fixed;
-  inset: 0;
+  position: sticky;
+  top: 0;
   width: 100%;
   height: 100vh;
   background: #0d3b66 url("Olje- bilde-1.png") no-repeat center bottom;
   background-size: contain;
   background-color: #0d3b66;
   z-index: -1;
-  opacity: 0;
-  transition: opacity 0.8s ease;
 }
 
-/* Container som bestemmer scrollområdene */
+/* Container for tekstene */
 .text-container {
   position: relative;
-  height: 500vh;
+  height: 650vh;
 }
 
-/* Vanlige scroll-tekster (1–4) */
+/* Scroll-tekstene */
 .text-display {
   position: fixed;
-  top: 22%;
-  right: 10%;
+  top: 25%;
+  right: 18%;
   transform: translateY(-50%);
-  width: 35%;
+  width: 40%;
   text-align: right;
   font-size: 2rem;
   font-weight: 700;
@@ -46,25 +46,32 @@ body {
   color: #fff;
   opacity: 0;
   transition: opacity 0.6s ease;
+  z-index: 11;
 }
 
-/* Blå boks (5. step) */
+/* --- Blå boks --- */
 .special-step {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 70%;
-  max-width: 900px;
+  position: sticky;
+  top: 50%; /* midt på skjermen */
+  transform: translateY(-50%);
+  width: 60%;
+  max-width: 850px;
+  margin: 0 auto;
   background: rgba(70, 130, 200, 0.95);
   color: #fff;
-  padding: 2.5rem 3rem;
+  padding: 3rem 3.5rem;
   border-radius: 12px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
   text-align: center;
-  opacity: 0;
-  transition: opacity 0.8s ease;
-  z-index: 2;
+  opacity: 0; /* usynlig som standard */
+  pointer-events: none;
+  transition: opacity 1s ease;
+  z-index: 12; /* foran bakgrunn og tekst */
+}
+
+.special-step.active {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .special-step h1 {
@@ -79,10 +86,119 @@ body {
   font-size: 1.25rem;
 }
 
-/* Artikkel videre */
-.content {
-  background: #fff;
-  color: #000;
-  padding: 6rem 2rem;
-  min-height: 100vh;
+/* --- BREDE-SEKSJON (uendret, beholdt slik du ønsket) --- */
+.section-brede {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  background: #4d8ccf;
+  color: #fff;
+  padding: 5rem 12%;
+  position: relative;
+  line-height: 1.7;
+  z-index: 1; /* under scrollytelling */
+}
+
+/* Tekst */
+.text-wrapper {
+  flex: 1.2;
+  max-width: 650px;
+  font-size: 1.4rem;
+  font-weight: 400;
+  opacity: 0;
+  transform: translateX(-80px); /* kommer fra venstre */
+  transition: all 1s ease;
+}
+
+.section-brede.visible .text-wrapper {
+  opacity: 1;
+  transform: translateX(0); /* flyttes inn til posisjon */
+}
+
+/* Bilde */
+.image-wrapper {
+  flex: 0.9;
+  display: flex;
+  justify-content: center;
+}
+
+.image-wrapper img {
+  width: 100%;
+  max-width: 350px;
+  border: 5px solid #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* Klikkbart ord */
+.rlwi {
+  font-weight: 900;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: underline;
+  position: relative;
+}
+
+/* RLWI-infoboks */
+.popup-box {
+  position: absolute;
+  bottom: 8%;
+  left: 8%;
+  background: #0d3b66;
+  color: #fff;
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  max-width: 420px;
+  display: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  font-size: 1.2rem;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.popup-box::before {
+  content: "💡";
+  font-size: 2rem;
+  position: absolute;
+  top: -1.2rem;
+  left: 1rem;
+}
+
+.popup-box strong {
+  color: #a9c8ff;
+  font-weight: 900;
+}
+
+/* Sørg for at popup og klikkfelt ikke blokkeres av andre lag */
+.section-brede,
+.section-brede * {
+  z-index: 20;
+}
+
+.popup-box {
+  z-index: 21;
+}
+
+/* Responsivt */
+@media (max-width: 900px) {
+  .section-brede {
+    flex-direction: column;
+    text-align: center;
+    padding: 4rem 2rem;
+  }
+
+  .image-wrapper {
+    order: -1;
+    margin-bottom: 1.5rem;
+  }
+
+  .text-wrapper {
+    font-size: 1.2rem;
+  }
+
+  .popup-box {
+    position: static;
+    margin: 1rem auto;
+  }
 }
