@@ -288,3 +288,18 @@ if (safetySection) {
 
   observer.observe(safetySection);
 }
+
+// --- DRIFT OFF seksjon: boks faller ned + tekst fader inn ---
+const driftSection = document.querySelector(".section-driftoff");
+
+if (driftSection) {
+  const driftObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        driftSection.classList.toggle("visible", entry.isIntersecting);
+      });
+    },
+    { threshold: 0.35 } // aktiver når ca. 35% av seksjonen er synlig
+  );
+  driftObserver.observe(driftSection);
+}

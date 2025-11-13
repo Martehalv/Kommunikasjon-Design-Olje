@@ -823,6 +823,79 @@ body {
   opacity: 1;
 }
 
+/* --- DRIFT OFF SEKSJON --- */
+.section-driftoff {
+  background: #4d8ccf;
+  color: #fff;
+  padding: 10rem 0 8rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 130vh;
+}
+
+/* Båten (står stille) */
+.drift-ship {
+  width: 80%;
+  max-width: 1200px;
+  display: block;
+  filter: drop-shadow(0 0 30px rgba(139, 191, 254, 0.7));
+}
+
+/* Boksen som faller ned */
+.drift-box {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(-150px);
+  top: 0;
+  background: #0b2f56;
+  color: #fff;
+  font-weight: 900;
+  font-size: 5rem;
+  padding: 2rem 8rem;
+  border-radius: 6px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: transform 4s cubic-bezier(0.25, 1, 0.3, 1), opacity 2s ease;
+}
+
+/* Når seksjonen kommer i view */
+.section-driftoff.visible .drift-box {
+  opacity: 1;
+  transform: translateX(-50%) translateY(446px);
+}
+.drift-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center; /* sentrerer båt */
+  align-items: center;
+  overflow: visible;
+}
+
+/* Teksten under båten */
+.drift-text {
+  max-width: 800px;
+  margin: 4rem auto 0;
+  padding: 0 2rem;
+  font-size: 1.35rem;
+  line-height: 1.7;
+  text-align: left;
+  font-weight: 400;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.drift-text strong {
+  font-weight: 500;
+}
+
+.section-driftoff.visible .drift-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Responsivt */
 @media (max-width: 900px) {
   .section-brede {
