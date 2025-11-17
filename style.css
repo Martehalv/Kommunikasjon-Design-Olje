@@ -446,6 +446,14 @@ body {
   margin: 0 auto 2rem;
   font-size: 1.3rem;
   font-weight: 400;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1.2s ease 0.3s;
+}
+
+.section-extraction.visible .intro-text {
+  opacity: 1;
+  transform: translate(0);
 }
 
 .quote {
@@ -513,12 +521,13 @@ body {
 }
 
 /* --- Måleboksen (linjene) --- */
+/* Måleboks */
 .depth-box {
   position: absolute;
   right: 38%;
-  top: 66.5%;
+  top: 73%;
   width: 90px;
-  height: 140px;
+  height: 120px;
   opacity: 0;
   transition: opacity 1.5s ease;
 }
@@ -537,14 +546,7 @@ body {
 .depth-line.bottom {
   width: 60px;
   height: 3px;
-  right: 0; /* peker mot røret */
-}
-
-.depth-line.side {
-  width: 3px;
-  height: 130px;
   right: 0;
-  top: 5px;
 }
 
 .depth-line.top {
@@ -555,29 +557,36 @@ body {
   bottom: 0;
 }
 
-/* Diamantformede ender */
+.depth-line.side {
+  width: 3px;
+  height: 110px; /* tilpasset 120px boks */
+  right: 0;
+  top: 5px; /* slik at topp & bunn matcher */
+}
+
+/* Diamantene (fikset størrelse + posisjon) */
 .depth-diamond {
   position: absolute;
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   background: #0b2f56;
   transform: rotate(45deg);
-  right: -6px;
+  right: -4px; /* perfekt kant-posisjon */
 }
 
 .depth-diamond.top {
-  top: -5px;
+  top: -6px; /* passer til den nye høyden */
 }
 
 .depth-diamond.bottom {
-  bottom: -5px;
+  bottom: -6px;
 }
 
 /* --- Label (5000 m – 6000 m) --- */
 .depth-label {
   position: absolute;
   left: 67%; /* flyttet mer til høyre */
-  top: 72%; /* flyttet litt opp */
+  top: 80%; /* flyttet litt opp */
   font-weight: 900;
   font-size: 1.4rem;
   color: #fff;
@@ -797,6 +806,9 @@ body {
 .safety-content p {
   font-size: 1.25rem;
   margin-bottom: 1.8rem;
+  opacity: 0;
+  transform: translateX(-80px);
+  transition: all 1s ease;
 }
 
 /* Bilde som kommer inn fra høyre */
@@ -818,7 +830,8 @@ body {
   transition: transform 1.6s cubic-bezier(0.25, 1, 0.3, 1), opacity 1.2s ease;
 }
 
-.section-safety.visible .safety-image {
+.section-safety.visible .safety-image,
+.section-safety.visible .safety-content p {
   transform: translateX(0);
   opacity: 1;
 }
