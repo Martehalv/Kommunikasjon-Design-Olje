@@ -6,12 +6,20 @@ body {
   overflow-x: hidden; /* denne kan du beholde alene */
 }
 
+/* --- GLOBALT: Reduser standard seksjon-padding --- */
+section {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
 /* --- SCROLLYTELLING INTRO --- */
 .scrollytelling {
   position: relative;
   height: 650vh; /* plass til alle tekstene + blå boks */
   z-index: 10; /* over alt annet */
   overflow: visible;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 /* Bakgrunnsbildet */
@@ -95,7 +103,7 @@ body {
   background: #4d8ccf;
   color: #fff;
   padding: 5rem 12%;
-  padding-bottom: 3rem;
+  padding-bottom: 4rem;
   margin-bottom: 0;
   position: relative;
   line-height: 1.7;
@@ -145,11 +153,11 @@ body {
 /* RLWI-infoboks */
 .popup-box {
   position: absolute;
-  bottom: 8%;
-  left: 8%;
+  bottom: -17%;
+  left: 11%;
   background: #0d3b66;
   color: #fff;
-  padding: 1.5rem 2rem;
+  padding: 1.5rem 3rem;
   border-radius: 8px;
   max-width: 420px;
   display: none;
@@ -186,13 +194,13 @@ body {
 .section-life {
   background: #4d8ccf;
   color: #fff;
-  padding: 8rem 8%;
+  padding-top: 8rem;
   margin-top: 0;
-  padding-top: 5rem;
   text-align: center;
   overflow: hidden;
   position: relative;
   min-height: 150vh; /* gir plass til scroll-animasjonen */
+  padding-bottom: 1rem;
 }
 
 /* BÅT-BILDET MED BLÅ GLOW */
@@ -253,7 +261,7 @@ body {
 .section-crew {
   background: #4d8ccf;
   color: #fff;
-  padding: 8rem 8%;
+  padding-top: 0;
   text-align: center;
   overflow: hidden;
   position: relative;
@@ -319,7 +327,6 @@ body {
 .section-slideshow {
   background: #4d8ccf;
   color: #fff;
-  padding: 5rem 0;
   text-align: center;
   position: relative;
 }
@@ -428,7 +435,7 @@ body {
 .section-extraction {
   background: #4d8ccf;
   color: #fff;
-  padding: 6rem 10%;
+
   text-align: center;
   line-height: 1.7;
   position: relative;
@@ -499,7 +506,7 @@ body {
 .section-depth {
   background: #4d8ccf;
   color: #fff;
-  padding: 6rem 8%;
+
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -651,7 +658,7 @@ body {
 /* Innholdet holder seg midt på skjermen */
 .precision-content {
   position: sticky;
-  top: 20%; /* omtrent midt på siden */
+  top: -4%;
   transform: translateY(0);
   max-width: 750px;
   margin: 0 auto;
@@ -735,7 +742,7 @@ body {
 .section-cooperation {
   background: #0b2f56;
   color: #fff;
-  padding: 8rem 10%;
+  padding-bottom: 3rem;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -785,10 +792,11 @@ body {
 .section-safety {
   background: #4d8ccf;
   color: #fff;
-  padding: 8rem 15%;
+  padding-top: 2rem;
   line-height: 1.8;
   position: relative;
   overflow: hidden;
+  text-align: center;
 }
 
 .safety-content {
@@ -840,7 +848,6 @@ body {
 .section-driftoff {
   background: #4d8ccf;
   color: #fff;
-  padding: 10rem 0 8rem;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -889,8 +896,7 @@ body {
 /* Teksten under båten */
 .drift-text {
   max-width: 800px;
-  margin: 4rem auto 0;
-  padding: 0 2rem;
+  margin: 2rem auto 0;
   font-size: 1.35rem;
   line-height: 1.7;
   text-align: left;
@@ -912,7 +918,6 @@ body {
 /* --- TECHNOLOGY BOX --- */
 .section-tech {
   background: #4d8ccf;
-  padding: 6rem 10%;
   display: flex;
   justify-content: center;
   color: #fff;
@@ -1032,7 +1037,8 @@ body {
 .section-belowwaves {
   position: relative;
   background: #0b2f56;
-  padding: 6rem 10%;
+  padding: 6rem 10% 0rem;
+  margin-bottom: 0;
   color: #fff;
   overflow: hidden;
 }
@@ -1063,7 +1069,6 @@ body {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-
   width: auto; /* 👈 behold naturlig bredde */
   height: auto; /* 👈 behold naturlig høyde */
   min-width: 1400px; /* 👈 Garanterer stort bilde */
@@ -1073,43 +1078,81 @@ body {
   pointer-events: none;
 }
 
-/* Responsivt */
-@media (max-width: 900px) {
-  .section-brede {
-    flex-direction: column;
+/* --- MOBILVERSJON --- */
+@media (max-width: 768px) {
+  /* Gjør scrolleren fullbredde */
+  .scrollytelling,
+  .background,
+  .text-container {
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Skjul bakgrunnsbilde, men behold høyde */
+  .background {
+    background-image: none !important;
+    background-color: #0d3b66 !important;
+  }
+
+  /* Tekstene */
+  .text-display {
+    position: fixed;
+    top: 22%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
     text-align: center;
-    padding: 4rem 2rem;
+    font-size: 1.3rem;
   }
 
-  .image-wrapper {
-    order: -1;
-    margin-bottom: 1.5rem;
+  /* ------------------------------------
+     SPESIALSTEG (BLÅ BOKS) – LØSNING 2
+     Ignorer animasjon, men vis kun når aktiv
+  ------------------------------------- */
+  .special-step {
+    position: fixed !important;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;
+    max-width: 360px;
+    padding: 1.2rem 1rem;
+    background: rgba(70, 130, 200, 0.95);
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+
+    /* 🚫 fjern all animasjon */
+    transition: none !important;
+
+    /* skjul når ikke aktiv */
+    opacity: 0 !important;
+    pointer-events: none;
   }
 
-  .text-wrapper {
-    font-size: 1.2rem;
+  .step {
+    height: 60vh !important;
   }
 
-  .popup-box {
-    position: static;
-    margin: 1rem auto;
+  /* MEN blå boksen skal IKKE arve denne høyden */
+  .special-step {
+    height: auto !important;
   }
-}
 
-@media (max-width: 1000px) {
-  .prev {
-    left: -55px;
+  .special-step.active {
+    /* viser boksen uten fade */
+    opacity: 1 !important;
+    pointer-events: auto;
   }
-  .next {
-    right: -55px;
-  }
-}
 
-@media (max-width: 700px) {
-  .prev,
-  .next {
-    font-size: 2rem;
-    width: 45px;
-    height: 45px;
+  .special-step h1 {
+    font-size: 1.5rem;
+    line-height: 1.2;
+    margin-bottom: 0.7rem;
+  }
+
+  .special-step p {
+    font-size: 1rem;
+    line-height: 1.3;
   }
 }
