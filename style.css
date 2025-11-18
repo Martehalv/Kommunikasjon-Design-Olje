@@ -435,7 +435,6 @@ section {
 .section-extraction {
   background: #4d8ccf;
   color: #fff;
-
   text-align: center;
   line-height: 1.7;
   position: relative;
@@ -1079,80 +1078,331 @@ section {
 }
 
 /* --- MOBILVERSJON --- */
+/* -------------------------------------------------
+   📱 FULL MOBILVERSJON – RESPONSIVT FOR ALLE SEKSJONER
+   ------------------------------------------------- */
 @media (max-width: 768px) {
-  /* Gjør scrolleren fullbredde */
-  .scrollytelling,
-  .background,
-  .text-container {
-    width: 100vw;
-    margin: 0;
-    padding: 0;
+  body {
+    overflow-x: hidden;
   }
 
-  /* Skjul bakgrunnsbilde, men behold høyde */
+  /* --- GLOBALT --- */
+  section {
+    padding: 2rem 1rem;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-align: center;
+  }
+
+  /* --- SCROLLYTELLING --- */
+  .scrollytelling {
+    height: auto;
+  }
+
   .background {
     background-image: none !important;
-    background-color: #0d3b66 !important;
+    height: 60vh;
   }
 
-  /* Tekstene */
   .text-display {
     position: fixed;
-    top: 22%;
+    top: 35%;
     left: 50%;
     transform: translateX(-50%);
-    width: 90%;
+    width: 92%;
+    font-size: 1rem;
     text-align: center;
-    font-size: 1.3rem;
   }
 
-  /* ------------------------------------
-     SPESIALSTEG (BLÅ BOKS) – LØSNING 2
-     Ignorer animasjon, men vis kun når aktiv
-  ------------------------------------- */
   .special-step {
-    position: fixed !important;
-    top: 55%;
-    left: 50%;
+    position: fixed;
+    top: 50%;
+    left: 46%;
     transform: translate(-50%, -50%);
-    width: 85%;
-    max-width: 360px;
-    padding: 1.2rem 1rem;
-    background: rgba(70, 130, 200, 0.95);
-    border-radius: 10px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-
-    /* 🚫 fjern all animasjon */
-    transition: none !important;
-
-    /* skjul når ikke aktiv */
+    width: 90%;
+    padding: 1rem 0.5rem 1rem 0.5rem;
+    margin: 1rem;
     opacity: 0 !important;
     pointer-events: none;
+    transition: none !important;
   }
 
-  .step {
-    height: 60vh !important;
+  .scrollytelling h1 {
+    font-size: 20px;
   }
 
-  /* MEN blå boksen skal IKKE arve denne høyden */
-  .special-step {
-    height: auto !important;
+  .scrollytelling p {
+    font-size: 1px;
   }
 
   .special-step.active {
-    /* viser boksen uten fade */
     opacity: 1 !important;
     pointer-events: auto;
   }
 
-  .special-step h1 {
-    font-size: 1.5rem;
-    line-height: 1.2;
-    margin-bottom: 0.7rem;
+  /* --- BREDE-SEKSJON --- */
+  .section-brede {
+    flex-direction: column;
+    text-align: center;
+    padding: 3rem 2rem;
   }
 
-  .special-step p {
+  .text-wrapper {
+    font-size: 15px;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  .image-wrapper img {
+    max-width: 260px;
+  }
+
+  .popup-box {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10%;
+    width: 90%;
+    padding: 1.2rem;
+  }
+
+  /* --- LIFE ON BOARD --- */
+  .section-life {
+    padding: 3rem 2rem;
+  }
+  .life-title {
+    font-size: 2.2rem;
+  }
+
+  .ship-wrapper {
+    height: 250px;
+  }
+
+  .ship-image {
+    width: 90%;
+  }
+
+  .life-text {
+    font-size: 15px;
+    margin-top: 2rem;
+  }
+
+  /* --- CREW --- */
+  .section-crew {
+    padding: 1rem 2rem;
+  }
+
+  .crew-image {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .crew-text {
+    font-size: 15px;
+  }
+
+  /* --- SLIDESHOW --- */
+  .slideshow-container {
+    border-radius: 10px;
+  }
+
+  .slide img {
+    height: auto;
+    max-height: 300px;
+  }
+
+  .prev,
+  .next {
+    top: 50%;
+    font-size: 2rem;
+    width: 45px;
+    height: 43px;
+  }
+
+  .prev {
+    left: 2%;
+  }
+  .next {
+    right: 2%;
+  }
+
+  .dot {
+    height: 12px;
+    width: 12px;
+  }
+
+  /* --- EXTRACTION SECTION --- */
+
+  .section-extraction {
+    padding: 3rem 2rem;
+  }
+
+  .extraction-title {
+    font-size: 1.5rem;
+  }
+
+  .intro-text {
+    font-size: 15px;
+  }
+
+  .quote {
+    font-size: 15px;
+  }
+
+  .slide-number {
+    font-size: 16px;
+  }
+
+  /* --- DEPTH SECTION --- */
+
+  .section-depth {
+    padding: 3rem 2rem;
+  }
+
+  .depth-ship {
+    max-width: 300px;
+  }
+
+  .depth-box {
+    right: 55%;
+    width: 70px;
+    height: 90px;
+  }
+
+  .depth-label {
+    left: 55%;
+    font-size: 14px;
+  }
+
+  .depth-text {
+    font-size: 15px;
+  }
+
+  /* --- PRECISION SECTION --- */
+  .precision-title {
+    font-size: 2rem;
+  }
+
+  .precision-intro {
+    font-size: 1.1rem;
+  }
+
+  .precision-list li {
+    font-size: 1.1rem;
+  }
+
+  .precision-quote {
+    font-size: 17px;
+  }
+
+  /* --- COOPERATION --- */
+
+  .section-cooperation {
+    padding: 3rem 2rem;
+  }
+
+  .coop-image {
+    max-width: 300px;
+  }
+
+  .coop-text h2 {
+    font-size: 1.5rem;
+  }
+
+  .coop-text p {
+    font-size: 17px;
+  }
+
+  /* --- SAFETY --- */
+
+  .section-safety {
+    padding: 3rem 2rem;
+  }
+
+  .safety-image {
+    width: 95%;
+  }
+
+  .safety-content h2 {
+    font-size: 2rem;
+  }
+
+  .safety-content p {
+    font-size: 17px;
+  }
+
+  /* --- DRIFT OFF --- */
+
+  .section-driftoff {
+    padding: 3rem 2rem;
+  }
+
+  .drift-box {
+    font-size: 1.2rem;
+    padding: 0.7rem 2rem;
+    transform: translateX(-50%) translateY(-30px);
+  }
+
+  .section-driftoff.visible .drift-box {
+    transform: translateX(-50%) translateY(97px); /* <- Endeposisjon mobil */
+  }
+
+  .drift-text {
+    font-size: 17px;
+  }
+
+  /* --- TECH BOX --- */
+  .tech-box {
+    padding: 1.8rem;
+    width: 92%;
+  }
+
+  .tech-title {
+    font-size: 1.85em;
+  }
+
+  .tech-intro,
+  .tech-hidden {
+    font-size: 17px;
+  }
+
+  .tech-toggle {
     font-size: 1rem;
-    line-height: 1.3;
+    padding: 0.6rem 2rem;
+  }
+
+  /* --- FUTURE --- */
+
+  .section-future {
+    padding: 3rem 2rem;
+  }
+
+  .future-title {
+    font-size: 2.2rem;
+  }
+
+  .future-intro {
+    font-size: 17px;
+  }
+
+  .speech-bubble {
+    font-size: 1rem;
+    padding: 1.4rem;
+  }
+
+  /* --- BELOW WAVES --- */
+  .belowwaves-title {
+    font-size: 2.2rem;
+  }
+
+  .belowwaves-text {
+    font-size: 17px;
+  }
+
+  .belowwaves-image {
+    min-width: 900px;
+    opacity: 0.15;
   }
 }
