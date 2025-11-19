@@ -1071,6 +1071,46 @@ section {
   pointer-events: none;
 }
 
+.oss-footer {
+  background-color: #0b2f56;
+  color: #fff;
+  text-align: center;
+  padding: 4rem 1rem;
+  font-family: "Georgia", serif;
+}
+
+.oss-footer .credits {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.oss-footer p {
+  margin: 1.2rem 0;
+  line-height: 1.6;
+}
+
+.oss-footer strong {
+  display: block;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  font-size: 0.9rem;
+  color: #ffffff;
+}
+
+.oss-footer .oss-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 2rem 0 1.5rem;
+  letter-spacing: 0.1em;
+}
+
+/* FIX: changed .footer a → .oss-footer a so it matches your actual footer */
+.oss-footer a {
+  color: #fff;
+  text-decoration: none;
+  font-style: italic;
+}
+
 /* --- MOBILVERSJON --- */
 
 @media (max-width: 1300px) and (min-width: 769px) {
