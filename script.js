@@ -46,19 +46,9 @@ window.addEventListener("scroll", () => {
 });
 
 // --- Brede seksjon animasjon ---
-const bredeSection = document.querySelector(".section-brede");
+
 const popup = document.getElementById("rlwi-info");
 const rlwiWord = document.querySelector(".rlwi");
-
-function checkVisibility() {
-  const rect = bredeSection.getBoundingClientRect();
-  if (rect.top < window.innerHeight * 0.7 && rect.bottom > 0) {
-    bredeSection.classList.add("visible");
-  }
-}
-
-window.addEventListener("scroll", checkVisibility);
-checkVisibility();
 
 // --- Popup-boksen ---
 rlwiWord.addEventListener("click", (e) => {

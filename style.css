@@ -132,14 +132,6 @@ section {
   max-width: 650px;
   font-size: 1.4rem;
   font-weight: 400;
-  opacity: 0;
-  transform: translateX(-80px);
-  transition: all 1s ease;
-}
-
-.section-brede.visible .text-wrapper {
-  opacity: 1;
-  transform: translateX(0); /* flyttes inn til posisjon */
 }
 
 /* Bilde */
@@ -184,7 +176,6 @@ section {
 }
 
 .popup-box::before {
-  content: "💡";
   font-size: 2rem;
   position: absolute;
   top: -1.2rem;
@@ -259,10 +250,11 @@ section {
 }
 
 .life-text {
-  max-width: 750px;
+  max-width: 650px;
   margin: 4rem auto 0;
   font-size: 1.35rem;
   line-height: 1.6;
+  text-align: left;
   opacity: 0;
   transform: translateY(50px);
   transition: all 1.2s ease 0.3s;
@@ -323,9 +315,10 @@ section {
 
 /* Tekst under bildet */
 .crew-text {
-  max-width: 750px;
+  max-width: 650px;
   margin: 3rem auto 0;
   font-size: 1.35rem;
+  text-align: left;
   line-height: 1.6;
 }
 
@@ -452,27 +445,35 @@ section {
   position: relative;
 }
 
+.section-extraction p.source {
+  text-align: left;
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 0.5rem;
+}
+
 .extraction-title {
   font-size: 3rem;
   font-weight: 900;
+  text-align: center;
   margin-bottom: 2rem;
   text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .intro-text {
-  max-width: 700px;
   margin: 0 auto 2rem;
   font-size: 1.3rem;
-  font-weight: 400;
-  opacity: 0;
+  max-width: 650px;
+  text-align: left;
 }
 
 .quote {
-  max-width: 750px;
   margin: 0 auto;
-  font-size: 1.35rem;
-  font-weight: 600;
+  font-size: 1.3rem;
+  max-width: 650px;
+  text-align: left;
   position: relative;
+  padding-bottom: 1rem;
 }
 
 /* --- ANIMERTE TALL --- */
@@ -510,7 +511,6 @@ section {
 .section-depth {
   background: #4d8ccf;
   color: #fff;
-
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -613,7 +613,8 @@ section {
 
 /* --- Teksten under båten --- */
 .depth-text {
-  max-width: 700px;
+  max-width: 650px;
+  text-align: left;
   margin: 3rem auto 0;
   font-size: 1.25rem;
   line-height: 1.7;
@@ -667,14 +668,15 @@ section {
   max-width: 750px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: left;
+  text-align: center;
+  max-width: 650px;
 }
 
 /* Tittel */
 .precision-title {
   font-size: 3rem;
   font-weight: 900;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.1rem;
   text-align: center;
   -webkit-text-stroke: 1.5px #4d8ccf;
 }
@@ -682,8 +684,8 @@ section {
 /* Intro-tekst */
 .precision-intro {
   font-size: 1.3rem;
-  text-align: center;
-  margin-bottom: 2rem;
+  text-align: left;
+  margin-bottom: 1.2rem;
 }
 
 /* Punktliste uten standard bullets */
@@ -699,6 +701,7 @@ section {
   font-size: 1.3rem;
   font-weight: 400;
   opacity: 0;
+  text-align: left;
   transform: translateY(40px);
   transition: all 0.8s ease-out;
   margin-bottom: 1.2rem;
@@ -734,7 +737,7 @@ section {
   font-size: 1.2rem;
   margin-top: 2rem;
   line-height: 1.8;
-  text-align: center;
+  text-align: left;
   opacity: 0;
   transition: opacity 1.2s ease;
 }
@@ -754,7 +757,7 @@ section {
 
 .coop-wrapper {
   position: relative;
-  max-width: 600px;
+  max-width: 650px;
   margin: 0 auto 3rem auto;
 }
 
@@ -781,15 +784,16 @@ section {
   margin-bottom: 1.5rem;
   background: #4d8ccf;
   display: inline-block;
-  padding: 0.4rem 1.2rem;
+  padding: 0.4rem 1.5rem;
   border-radius: 6px;
 }
 
 .coop-text p {
-  max-width: 750px;
+  max-width: 650px;
   margin: 0 auto;
   font-size: 1.25rem;
   line-height: 1.7;
+  text-align: left;
 }
 
 /* --- SAFETY SEKSJON --- */
@@ -804,7 +808,7 @@ section {
 }
 
 .safety-content {
-  max-width: 750px;
+  max-width: 650px;
   margin: 0 auto;
   position: relative;
 }
@@ -818,9 +822,7 @@ section {
 .safety-content p {
   font-size: 1.25rem;
   margin-bottom: 1.8rem;
-  opacity: 0;
-  transform: translateX(-80px);
-  transition: all 1s ease;
+  text-align: left;
 }
 
 /* Bilde som kommer inn fra høyre */
@@ -842,8 +844,7 @@ section {
   transition: transform 1.6s cubic-bezier(0.25, 1, 0.3, 1), opacity 1.2s ease;
 }
 
-.section-safety.visible .safety-image,
-.section-safety.visible .safety-content p {
+.section-safety.visible .safety-image {
   transform: translateX(0);
   opacity: 1;
 }
@@ -899,24 +900,16 @@ section {
 
 /* Teksten under båten */
 .drift-text {
-  max-width: 800px;
+  max-width: 650px;
   margin: 2rem auto 0;
   font-size: 1.35rem;
   line-height: 1.7;
   text-align: left;
   font-weight: 400;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 1s ease, transform 1s ease;
 }
 
 .drift-text strong {
   font-weight: 500;
-}
-
-.section-driftoff.visible .drift-text {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 /* --- TECHNOLOGY BOX --- */
@@ -994,15 +987,16 @@ section {
 
 /* Intro */
 .future-intro {
-  max-width: 700px;
+  max-width: 650px;
   margin: 0 auto 4rem;
   font-size: 1.3rem;
   font-weight: 500;
+  text-align: left;
 }
 
 /* Snakkeboble */
 .speech-bubble {
-  max-width: 750px;
+  max-width: 650px;
   margin: 3rem auto;
   background: #ffffff;
   color: #0b2f56;
@@ -1030,13 +1024,6 @@ section {
   filter: drop-shadow(0 6px 6px rgba(0, 0, 0, 0.25));
 }
 
-/* Mellomtekst */
-.future-pause {
-  font-size: 1.4rem;
-  font-weight: 800;
-  margin: 3rem 0 1rem;
-}
-
 /* --- A WORLD BELOW THE WAVES --- */
 .section-belowwaves {
   position: relative;
@@ -1051,8 +1038,9 @@ section {
 .belowwaves-wrapper {
   position: relative;
   z-index: 2;
-  max-width: 800px;
+  max-width: 650px;
   margin: 0 auto 4rem;
+  text-align: center;
 }
 
 .belowwaves-title {
@@ -1065,6 +1053,7 @@ section {
   font-size: 1.3rem;
   line-height: 1.7;
   margin-bottom: 1.6rem;
+  text-align: left;
 }
 
 /* --- Bakgrunnsbilde nederst, med riktig proporsjon --- */
@@ -1075,7 +1064,7 @@ section {
   transform: translateX(-50%);
   width: auto; /* 👈 behold naturlig bredde */
   height: auto; /* 👈 behold naturlig høyde */
-  min-width: 1400px; /* 👈 Garanterer stort bilde */
+  min-width: 100%; /* 👈 Garanterer stort bilde */
   max-width: none; /* 👈 Hindrer at det krympes for mye */
   opacity: 0.1;
   z-index: 1;
@@ -1204,17 +1193,35 @@ section {
   /* --- LIFE ON BOARD --- */
   .section-life {
     padding: 3rem 2rem;
+    min-height: auto;
   }
+
   .life-title {
     font-size: 2.2rem;
   }
 
   .ship-wrapper {
     height: 250px;
+    position: relative;
+    margin-bottom: 2rem;
   }
 
   .ship-image {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-150%) scale(1); /* 👈 samme som desktop */
     width: 90%;
+    max-width: 400px;
+    opacity: 0;
+    transition: transform 1.8s ease-out, opacity 1.2s ease;
+    filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.3));
+  }
+
+  /* VIKTIG: Denne mangler på mobil! */
+  .section-life.visible .ship-image {
+    transform: translateX(-50%) scale(1); /* 👈 samme senterposisjon som desktop */
+    opacity: 1;
   }
 
   .life-text {
