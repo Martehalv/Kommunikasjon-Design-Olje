@@ -324,3 +324,20 @@ techToggle.addEventListener("click", () => {
     });
   }
 });
+
+/* --- GLOBAL FADE-IN FOR LONG TEXT BLOCKS --- */
+const fadeEls = document.querySelectorAll(".fade-in");
+
+function handleFadeIn() {
+  const trigger = window.innerHeight * 0.85;
+
+  fadeEls.forEach((el) => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < trigger) {
+      el.classList.add("visible");
+    }
+  });
+}
+
+window.addEventListener("scroll", handleFadeIn);
+window.addEventListener("load", handleFadeIn);

@@ -6,10 +6,26 @@ body {
   overflow-x: hidden; /* denne kan du beholde alene */
 }
 
+.source {
+  font-size: 1rem !important;
+}
+
 /* --- GLOBALT: Reduser standard seksjon-padding --- */
 section {
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+
+/* --- UNIVERSAL FADE-IN FOR LANG TEKST --- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.1s ease-out, transform 1.1s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* --- SCROLLYTELLING INTRO --- */
@@ -311,14 +327,10 @@ section {
   margin: 3rem auto 0;
   font-size: 1.35rem;
   line-height: 1.6;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 1.2s ease 0.3s;
 }
 
 /* Når seksjonen er synlig */
-.section-crew.visible .crew-image,
-.section-crew.visible .crew-text {
+.section-crew.visible .crew-image {
   opacity: 1;
   transform: translateY(0);
 }
@@ -453,13 +465,6 @@ section {
   font-size: 1.3rem;
   font-weight: 400;
   opacity: 0;
-  transform: translateY(50px);
-  transition: all 1.2s ease 0.3s;
-}
-
-.section-extraction.visible .intro-text {
-  opacity: 1;
-  transform: translate(0);
 }
 
 .quote {
