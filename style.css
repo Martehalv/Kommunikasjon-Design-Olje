@@ -1079,7 +1079,7 @@ section {
 
 /* --- MOBILVERSJON --- */
 
-@media (max-width: 768px) {
+@media (max-width: 1300px) and (min-width: 769px) {
   * {
     box-sizing: border-box;
   }
@@ -1102,6 +1102,7 @@ section {
   /* --- SCROLLYTELLING --- */
   .scrollytelling {
     height: auto;
+    padding-top: 0;
   }
 
   .background {
@@ -1114,9 +1115,11 @@ section {
     top: 35%;
     left: 50%;
     transform: translateX(-50%);
-    width: 100%;
+    width: 90%; /* redusert fra 100% for å gi plass */
+    max-width: 90vw; /* sikrer at den ikke går utenfor */
     font-size: 2rem;
     text-align: center;
+    padding: 0 1rem; /* padding i stedet for margin */
   }
 
   .special-step {
@@ -1124,16 +1127,18 @@ section {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 100%;
-    padding: 1rem 0.5rem 1rem 0.5rem;
-    margin: 1rem;
+    width: calc(100% - 15rem); /* trekker fra margin på begge sider */
+    max-width: calc(100vw - 2rem); /* sikrer at den ikke går utenfor */
+    padding: 4rem 4rem;
+    margin: 0; /* fjernet margin siden vi bruker width calc */
     opacity: 0 !important;
     pointer-events: none;
     transition: none !important;
+    box-sizing: border-box; /* viktig! */
   }
 
   .scrollytelling h1 {
-    font-size: 20px;
+    font-size: 2rem;
   }
 
   .scrollytelling p {
@@ -1168,31 +1173,22 @@ section {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
     width: 90%;
     max-width: 360px;
-
     /* Dette er hemmeligheten: */
-    max-height: 25vh; /* så den ikke blir gigantisk */
-    overflow-y: auto; /* scroll inni boksen hvis den blir for høy */
+    max-height: 28vh; /* så den ikke blir gigantisk */
 
     background: rgba(13, 59, 102, 0.85);
     backdrop-filter: blur(6px);
-
-    padding: 1.2rem 1.4rem;
+    padding: 1.2rem;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     z-index: 9999;
     display: none;
   }
 
-  .popup-box::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  .popup-box::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.4);
-    border-radius: 5px;
+  .popup-box p {
+    padding: 0;
   }
 
   /* Fjern lyspære på mobil */
