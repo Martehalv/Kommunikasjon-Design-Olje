@@ -38,6 +38,19 @@ section {
   padding-bottom: 0;
 }
 
+.scrollytelling-figure {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.scrollytelling-source {
+  font-size: 0.9rem;
+  color: #ddd;
+  margin-top: 1rem;
+  line-height: 1.3;
+}
+
 /* Bakgrunnsbildet */
 .background {
   position: sticky;
@@ -223,6 +236,32 @@ section {
   filter: drop-shadow(0 0 35px rgba(139, 191, 254, 0.8)); /* BLÅ GLOW */
 }
 
+.image-wrapper figure {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.image-source {
+  font-size: 0.9rem;
+  color: #f0f0f0;
+  margin-top: 0.5rem;
+  line-height: 1.3;
+}
+
+.ship-wrapper figure {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.image-source {
+  font-size: 0.9rem;
+  color: #ddd;
+  margin-top: 0.5rem;
+  line-height: 1.3;
+}
+
 .life-title {
   font-size: 4rem;
   font-weight: 900;
@@ -311,6 +350,19 @@ section {
   opacity: 0;
   transform: translateY(50px);
   transition: all 1.2s ease;
+}
+
+.crew-wrapper figure {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.crew-source {
+  font-size: 0.9rem;
+  color: #ddd;
+  margin-top: 0.5rem;
+  line-height: 1.3;
 }
 
 /* Tekst under bildet */
@@ -436,6 +488,14 @@ section {
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
 
+.slideshow-source {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+  color: #ddd;
+  line-height: 1.3;
+}
+
 /* --- EXTRACTION SEKSJON --- */
 .section-extraction {
   background: #4d8ccf;
@@ -507,6 +567,22 @@ section {
   opacity: 1;
 }
 
+.depth-figure {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.depth-source {
+  font-size: 0.9rem;
+  color: #ddd;
+  margin-top: 0.5rem;
+  line-height: 1.3;
+}
+
 /* --- DEPTH SEKSJON (5000 m - 6000 m) --- */
 .section-depth {
   background: #4d8ccf;
@@ -536,7 +612,7 @@ section {
 .depth-box {
   position: absolute;
   right: 38%;
-  top: 73%;
+  top: 70%;
   width: 90px;
   height: 120px;
   opacity: 0;
@@ -586,11 +662,11 @@ section {
 }
 
 .depth-diamond.top {
-  top: -6px; /* passer til den nye høyden */
+  top: -4px; /* passer til den nye høyden */
 }
 
 .depth-diamond.bottom {
-  bottom: -6px;
+  bottom: -4px;
 }
 
 /* --- Label (5000 m – 6000 m) --- */
@@ -796,6 +872,22 @@ section {
   text-align: left;
 }
 
+.coop-figure {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.coop-source {
+  font-size: 0.9rem;
+  color: #ddd;
+  margin-top: 0.5rem;
+  line-height: 1.3;
+}
+
 /* --- SAFETY SEKSJON --- */
 .section-safety {
   background: #4d8ccf;
@@ -910,6 +1002,19 @@ section {
 
 .drift-text strong {
   font-weight: 500;
+}
+
+.drift-figure-bottom {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.drift-source {
+  font-size: 0.9rem;
+  color: #ddd;
+  margin-top: 1rem;
+  line-height: 1.3;
 }
 
 /* --- TECHNOLOGY BOX --- */
@@ -1071,6 +1176,21 @@ section {
   pointer-events: none;
 }
 
+.belowwaves-figure {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.belowwaves-source {
+  font-size: 0.9rem;
+  color: #ddd;
+  margin-top: 1rem;
+  line-height: 1.3;
+}
+
+/*Footer*/
+
 .oss-footer {
   background-color: #0b2f56;
   color: #fff;
@@ -1144,6 +1264,14 @@ section {
     height: 60vh;
   }
 
+  .scrollytelling-figure {
+    display: none;
+  }
+
+  .scrollytelling-source {
+    display: none;
+  }
+
   .text-display {
     position: fixed;
     top: 35%;
@@ -1196,6 +1324,8 @@ section {
     font-size: 15px;
     transform: none !important;
     opacity: 1 !important;
+    max-width: 550px;
+    text-align: left;
   }
 
   .image-wrapper img {
@@ -1267,6 +1397,8 @@ section {
   .life-text {
     font-size: 15px;
     margin-top: 2rem;
+    max-width: 550px;
+    text-align: left;
   }
 
   /* --- CREW --- */
@@ -1281,11 +1413,14 @@ section {
 
   .crew-text {
     font-size: 15px;
+    max-width: 550px;
+    text-align: left;
   }
 
   /* --- SLIDESHOW --- */
   .slideshow-container {
     border-radius: 10px;
+    max-width: 650px;
   }
 
   .slide img {
@@ -1317,6 +1452,7 @@ section {
 
   .section-extraction {
     padding: 3rem 2rem;
+    text-align: center !important;
   }
 
   .extraction-title {
@@ -1325,10 +1461,20 @@ section {
 
   .intro-text {
     font-size: 15px;
+    max-width: 550px;
+    text-align: left;
   }
 
   .quote {
     font-size: 15px;
+    max-width: 550px;
+    text-align: left;
+  }
+
+  .section-extraction p.source {
+    max-width: 550px;
+    margin: 0 auto;
+    text-align: left;
   }
 
   .slide-number {
@@ -1363,6 +1509,8 @@ section {
 
   .depth-text {
     font-size: 15px;
+    max-width: 550px;
+    text-align: left;
   }
 
   /* --- PRECISION SECTION --- */
@@ -1372,14 +1520,23 @@ section {
 
   .precision-intro {
     font-size: 1.1rem;
+    max-width: 550px;
+    text-align: left;
+    margin: 0 auto;
   }
 
   .precision-list li {
     font-size: 1.1rem;
+    max-width: 550px;
+    text-align: left;
+    margin: 1rem;
   }
 
   .precision-quote {
     font-size: 17px;
+    max-width: 550px;
+    text-align: left;
+    margin: 0 auto;
   }
 
   /* --- COOPERATION --- */
@@ -1394,10 +1551,14 @@ section {
 
   .coop-text h2 {
     font-size: 1.5rem;
+    max-width: 550px;
+    text-align: left;
   }
 
   .coop-text p {
     font-size: 17px;
+    max-width: 550px;
+    text-align: left;
   }
 
   /* --- SAFETY --- */
@@ -1416,6 +1577,10 @@ section {
 
   .safety-content p {
     font-size: 17px;
+    max-width: 550px;
+    text-align: left;
+    margin: 0 auto;
+    padding-bottom: 1rem;
   }
 
   /* --- DRIFT OFF --- */
@@ -1457,6 +1622,13 @@ section {
     max-width: 450px;
   }
 
+  .drift-text {
+    max-width: 550px;
+    font-size: 19px;
+    text-align: left;
+    margin: 0 auto;
+  }
+
   /* Teksten skal fortsatt fade inn */
   .section-driftoff.visible .drift-text {
     opacity: 1;
@@ -1467,6 +1639,7 @@ section {
   .tech-box {
     padding: 1.8rem;
     width: 92%;
+    max-width: 550px;
   }
 
   .tech-title {
@@ -1495,11 +1668,15 @@ section {
 
   .future-intro {
     font-size: 17px;
+    max-width: 550px;
+    text-align: left;
+    margin: 0 auto;
   }
 
   .speech-bubble {
     font-size: 1rem;
     padding: 1.4rem;
+    max-width: 550px;
   }
 
   /* --- BELOW WAVES --- */
@@ -1509,6 +1686,9 @@ section {
 
   .belowwaves-text {
     font-size: 17px;
+    max-width: 550px;
+    text-align: left;
+    margin: 0 auto;
   }
 
   .belowwaves-image {
