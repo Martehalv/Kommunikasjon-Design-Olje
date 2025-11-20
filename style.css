@@ -1702,7 +1702,13 @@ section {
     box-sizing: border-box;
   }
 
+  .source {
+    font-size: 13px !important;
+  }
+
+  html,
   body {
+    max-width: 100%;
     overflow-x: hidden;
   }
 
@@ -1721,6 +1727,12 @@ section {
   .scrollytelling {
     height: auto;
     padding-top: 0;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  .scrollytelling * {
+    max-width: 100%;
   }
 
   .background {
@@ -1785,10 +1797,10 @@ section {
   }
 
   .text-wrapper {
-    font-size: 14px;
+    font-size: 15px;
     transform: none !important;
     opacity: 1 !important;
-    max-width: 100%;
+    max-width: 365px;
     text-align: left;
     padding: 0 0.5rem;
   }
@@ -1816,7 +1828,7 @@ section {
 
   .popup-box p {
     padding: 0;
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .popup-box::before {
@@ -1857,9 +1869,9 @@ section {
   }
 
   .life-text {
-    font-size: 14px;
+    font-size: 15px;
     margin-top: 1.5rem;
-    max-width: 100%;
+    max-width: 365px;
     text-align: left;
     padding: 0 0.5rem;
   }
@@ -1875,8 +1887,8 @@ section {
   }
 
   .crew-text {
-    font-size: 14px;
-    max-width: 100%;
+    font-size: 15px;
+    max-width: 365px;
     text-align: left;
     padding: 0 0.5rem;
   }
@@ -1921,27 +1933,28 @@ section {
 
   .extraction-title {
     font-size: 1.3rem;
+    max-width: 400px;
   }
 
   .intro-text {
-    font-size: 14px;
-    max-width: 100%;
+    font-size: 15px;
+    max-width: 365px;
     text-align: left;
     padding: 0 0.5rem;
   }
 
   .quote {
-    font-size: 14px;
-    max-width: 100%;
+    font-size: 15px;
+    max-width: 365px;
     text-align: left;
     padding: 0 0.5rem;
   }
 
   .section-extraction p.source {
-    max-width: 100%;
+    max-width: 365px;
     margin: 0 auto;
     text-align: left;
-    padding: 0 0.5rem;
+    padding: 1rem 0.5rem;
     font-size: 13px;
   }
 
@@ -1975,38 +1988,77 @@ section {
   }
 
   .depth-text {
-    font-size: 14px;
-    max-width: 100%;
+    font-size: 15px;
+    max-width: 365px;
     text-align: left;
     padding: 0 0.5rem;
   }
 
-  /* --- PRECISION SECTION --- */
+  .section-precision {
+    height: auto !important;
+    min-height: auto !important;
+  }
+
+  .precision-content {
+    position: static !important;
+    top: auto !important;
+    transform: none !important;
+  }
+
+  /* Tittel */
   .precision-title {
     font-size: 1.6rem;
+    text-align: center;
   }
 
+  /* Intro-tekst */
   .precision-intro {
-    font-size: 0.95rem;
-    max-width: 100%;
+    font-size: 15px;
+    max-width: 365px;
     text-align: left;
-    margin: 0 auto;
+    margin: 0 auto 1rem;
     padding: 0 0.5rem;
   }
 
-  .precision-list li {
-    font-size: 0.95rem;
-    max-width: 100%;
-    text-align: left;
-    margin: 0.8rem 0.5rem;
+  /* LISTE */
+  .precision-list {
+    list-style: disc !important;
+    padding-left: 1.5rem !important;
+    margin: 0;
   }
 
+  /* ---- VIKTIG ----
+     SLÅ AV DESKTOP-ANIMASJON,
+     OG BRUK FADE-IN PÅ LI I STEDET
+  */
+  .precision-list li {
+    font-size: 15px !important;
+    max-width: 365px;
+    margin: 0.8rem 0.5rem;
+
+    /* 🔥 Slå AV ALLE former for animasjon */
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* Fjern den gamle prikkanimasjonen */
+  .precision-list li::before {
+    display: none !important;
+  }
+
+  /* Sitat */
   .precision-quote {
     font-size: 15px;
-    max-width: 100%;
+    max-width: 365px;
     text-align: left;
-    margin: 0 auto;
+    margin: 1rem auto 0;
     padding: 0 0.5rem;
+  }
+
+  .precision-quote.visible {
+    opacity: 1 !important;
+    transform: none !important;
   }
 
   /* --- COOPERATION --- */
@@ -2028,7 +2080,7 @@ section {
 
   .coop-text p {
     font-size: 15px;
-    max-width: 100%;
+    max-width: 365px;
     text-align: left;
     padding: 0 0.5rem;
   }
@@ -2049,10 +2101,14 @@ section {
 
   .safety-content p {
     font-size: 15px;
-    max-width: 100%;
+    max-width: 365px;
     text-align: left;
     margin: 0 auto;
     padding: 0 0.5rem 1rem;
+  }
+
+  .safety-content p.source {
+    padding: 1rem 0.5rem;
   }
 
   /* --- DRIFT OFF --- */
@@ -2091,8 +2147,8 @@ section {
   }
 
   .drift-text {
-    max-width: 100%;
-    font-size: 16px;
+    max-width: 365px;
+    font-size: 15px;
     text-align: left;
     margin: 0 auto;
     padding: 0 0.5rem;
@@ -2136,7 +2192,7 @@ section {
 
   .future-intro {
     font-size: 15px;
-    max-width: 100%;
+    max-width: 365px;
     text-align: left;
     margin: 0 auto;
     padding: 0 0.5rem;
@@ -2145,7 +2201,7 @@ section {
   .speech-bubble {
     font-size: 0.9rem;
     padding: 1.2rem;
-    max-width: 100%;
+    max-width: 365px;
   }
 
   /* --- BELOW WAVES --- */
@@ -2155,14 +2211,14 @@ section {
 
   .belowwaves-text {
     font-size: 15px;
-    max-width: 100%;
+    max-width: 365px;
     text-align: left;
     margin: 0 auto;
     padding: 0 0.5rem;
   }
 
-  .belowwaves-image {
-    width: 100%;
-    opacity: 0.15;
+  .belowwaves-image,
+  .belowwaves-figure {
+    display: none;
   }
 }
