@@ -3,7 +3,7 @@ body {
   font-family: "Inter", "Arial", sans-serif;
   color: white;
   background: #0d3b66;
-  overflow-x: hidden; /* denne kan du beholde alene */
+  overflow-x: hidden;
 }
 
 .source {
@@ -31,8 +31,8 @@ section {
 /* --- SCROLLYTELLING INTRO --- */
 .scrollytelling {
   position: relative;
-  height: 650vh; /* plass til alle tekstene + blå boks */
-  z-index: 10; /* over alt annet */
+  height: 650vh;
+  z-index: 10;
   overflow: visible;
   padding-top: 0;
   padding-bottom: 0;
@@ -51,7 +51,6 @@ section {
   line-height: 1.3;
 }
 
-/* Bakgrunnsbildet */
 .background {
   position: sticky;
   top: 0;
@@ -63,13 +62,11 @@ section {
   z-index: -1;
 }
 
-/* Container for tekstene */
 .text-container {
   position: relative;
   height: 650vh;
 }
 
-/* Scroll-tekstene */
 .text-display {
   position: fixed;
   top: 25%;
@@ -89,7 +86,7 @@ section {
 /* --- Blå boks --- */
 .special-step {
   position: sticky;
-  top: 50%; /* midt på skjermen */
+  top: 50%;
   transform: translateY(-50%);
   width: 60%;
   max-width: 850px;
@@ -100,10 +97,10 @@ section {
   border-radius: 12px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
   text-align: center;
-  opacity: 0; /* usynlig som standard */
+  opacity: 0;
   pointer-events: none;
   transition: opacity 1s ease;
-  z-index: 12; /* foran bakgrunn og tekst */
+  z-index: 12;
 }
 
 .special-step.active {
@@ -123,7 +120,7 @@ section {
   font-size: 1.25rem;
 }
 
-/* --- BREDE-SEKSJON (uendret, beholdt slik du ønsket) --- */
+/* --- BREDE-SEKSJON --- */
 .section-brede {
   display: flex;
   align-items: center;
@@ -136,10 +133,8 @@ section {
   margin-bottom: 0;
   position: relative;
   line-height: 1.7;
-  z-index: 1; /* under scrollytelling */
+  z-index: 1;
 }
-
-/* Tekst */
 .text-wrapper {
   flex: 1.2;
   max-width: 650px;
@@ -147,7 +142,6 @@ section {
   font-weight: 400;
 }
 
-/* Bilde */
 .image-wrapper {
   flex: 0.9;
   display: flex;
@@ -162,7 +156,6 @@ section {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
 
-/* Klikkbart ord */
 .rlwi {
   font-weight: 900;
   color: #fff;
@@ -171,7 +164,6 @@ section {
   position: relative;
 }
 
-/* RLWI-infoboks */
 .popup-box {
   position: absolute;
   bottom: -17%;
@@ -200,7 +192,6 @@ section {
   font-weight: 900;
 }
 
-/* Sørg for at popup og klikkfelt ikke blokkeres av andre lag */
 .section-brede,
 .section-brede * {
   z-index: 20;
@@ -219,21 +210,20 @@ section {
   text-align: center;
   overflow: hidden;
   position: relative;
-  min-height: 150vh; /* gir plass til scroll-animasjonen */
+  min-height: 150vh;
   padding-bottom: 1rem;
 }
 
-/* BÅT-BILDET MED BLÅ GLOW */
 .ship-image {
   position: absolute;
   left: 50%;
   top: 0;
-  transform: translateX(-150%) scale(1.1); /* starter større og utenfor venstre */
-  width: 95%; /* litt større */
+  transform: translateX(-150%) scale(1.1);
+  width: 95%;
   max-width: 850px;
   opacity: 0;
   transition: transform 1.8s ease-out, opacity 1.2s ease;
-  filter: drop-shadow(0 0 35px rgba(139, 191, 254, 0.8)); /* BLÅ GLOW */
+  filter: drop-shadow(0 0 35px rgba(139, 191, 254, 0.8));
 }
 
 .image-wrapper figure {
@@ -315,7 +305,6 @@ section {
   min-height: 100vh;
 }
 
-/* Wrapper for bildet */
 .crew-wrapper {
   position: relative;
   display: flex;
@@ -323,7 +312,6 @@ section {
   align-items: center;
 }
 
-/* Blå glød bak crew-bildet */
 .crew-wrapper::before {
   content: "";
   position: absolute;
@@ -341,7 +329,6 @@ section {
   z-index: 0;
 }
 
-/* Selve bildet */
 .crew-image {
   width: 85%;
   max-width: 700px;
@@ -365,7 +352,6 @@ section {
   line-height: 1.3;
 }
 
-/* Tekst under bildet */
 .crew-text {
   max-width: 650px;
   margin: 3rem auto 0;
@@ -374,7 +360,6 @@ section {
   line-height: 1.6;
 }
 
-/* Når seksjonen er synlig */
 .section-crew.visible .crew-image {
   opacity: 1;
   transform: translateY(0);
@@ -392,25 +377,23 @@ section {
   max-width: 900px;
   position: relative;
   margin: 0 auto;
-  overflow: visible; /* 👈 VIKTIG endring - lar pilene vises utenfor */
+  overflow: visible;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* Bildene */
 .slide {
   display: none;
 }
 
 .slide img {
   width: 100%;
-  height: 550px; /* fast høyde for alle bilder */
-  object-fit: cover; /* fyller uten å strekke */
+  height: 550px;
+  object-fit: cover;
   border-radius: 12px;
   vertical-align: middle;
 }
 
-/* Fade mellom bilder */
 .fade {
   animation-name: fade;
   animation-duration: 0.8s;
@@ -425,7 +408,6 @@ section {
   }
 }
 
-/* Piler utenfor bildene */
 .prev,
 .next {
   cursor: pointer;
@@ -433,7 +415,7 @@ section {
   top: 50%;
   transform: translateY(-50%);
   color: #ffffff;
-  font-size: 2.8rem; /* større piler */
+  font-size: 2.8rem;
   font-weight: 400;
   width: 60px;
   height: 60px;
@@ -448,7 +430,6 @@ section {
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
 }
 
-/* plassering */
 .prev {
   left: -80px;
 }
@@ -466,7 +447,6 @@ section {
   transform: translateY(-50%) scale(1.15);
 }
 
-/* Dots under slideshow */
 .slideshow-dots {
   text-align: center;
   margin-top: 1.8rem;
@@ -536,7 +516,6 @@ section {
   padding-bottom: 1rem;
 }
 
-/* --- ANIMERTE TALL --- */
 .slide-number {
   display: inline-block;
   font-weight: 900;
@@ -547,7 +526,6 @@ section {
   text-shadow: 0 0 10px rgba(11, 47, 86, 0.4);
 }
 
-/* Startposisjoner: langt utenfor skjermen */
 .num5000 {
   transform: translateX(-120vw);
 }
@@ -556,7 +534,6 @@ section {
   transform: translateX(120vw);
 }
 
-/* Når seksjonen blir synlig */
 .section-extraction.visible .num5000 {
   transform: translateX(0);
   opacity: 1;
@@ -607,7 +584,6 @@ section {
   filter: drop-shadow(0 0 30px rgba(0, 0, 0, 0.3));
 }
 
-/* --- Måleboksen (linjene) --- */
 /* Måleboks */
 .depth-box {
   position: absolute;
@@ -646,23 +622,23 @@ section {
 
 .depth-line.side {
   width: 3px;
-  height: 110px; /* tilpasset 120px boks */
+  height: 110px;
   right: 0;
-  top: 5px; /* slik at topp & bunn matcher */
+  top: 5px;
 }
 
-/* Diamantene (fikset størrelse + posisjon) */
+/* Diamantene */
 .depth-diamond {
   position: absolute;
   width: 10px;
   height: 10px;
   background: #0b2f56;
   transform: rotate(45deg);
-  right: -4px; /* perfekt kant-posisjon */
+  right: -4px;
 }
 
 .depth-diamond.top {
-  top: -4px; /* passer til den nye høyden */
+  top: -4px;
 }
 
 .depth-diamond.bottom {
@@ -672,8 +648,8 @@ section {
 /* --- Label (5000 m – 6000 m) --- */
 .depth-label {
   position: absolute;
-  left: 67%; /* flyttet mer til høyre */
-  top: 80%; /* flyttet litt opp */
+  left: 67%;
+  top: 80%;
   font-weight: 900;
   font-size: 1.4rem;
   color: #fff;
@@ -687,7 +663,6 @@ section {
   opacity: 1;
 }
 
-/* --- Teksten under båten --- */
 .depth-text {
   max-width: 650px;
   text-align: left;
@@ -700,9 +675,6 @@ section {
   margin-bottom: 1.6rem;
 }
 
-/* --- Animasjon: fade/slide inn ved scroll --- */
-
-/* Måleboksen: fader inn */
 .depth-box {
   opacity: 0;
   transform: translateY(20px);
@@ -714,10 +686,9 @@ section {
   transform: translateY(0);
 }
 
-/* Teksten (5000 m – 6000 m): kommer fra høyre */
 .depth-label {
   opacity: 0;
-  transform: translateX(250px); /* 👈 starter lenger ute til høyre */
+  transform: translateX(250px);
   transition: transform 2.6s ease-out, opacity 1.2s ease;
 }
 
@@ -730,13 +701,12 @@ section {
 .section-precision {
   background: #0b2f56;
   color: #fff;
-  height: 500vh; /* Seksjonen “holder igjen” så man får scrollet rolig */
+  height: 500vh;
   position: relative;
-  overflow: visible; /* MÅ være visible for sticky å fungere */
+  overflow: visible;
   line-height: 1.7;
 }
 
-/* Innholdet holder seg midt på skjermen */
 .precision-content {
   position: sticky;
   top: -4%;
@@ -748,7 +718,6 @@ section {
   max-width: 650px;
 }
 
-/* Tittel */
 .precision-title {
   font-size: 3rem;
   font-weight: 900;
@@ -757,21 +726,18 @@ section {
   -webkit-text-stroke: 1.5px #4d8ccf;
 }
 
-/* Intro-tekst */
 .precision-intro {
   font-size: 1.3rem;
   text-align: left;
   margin-bottom: 1.2rem;
 }
 
-/* Punktliste uten standard bullets */
 .precision-list {
   list-style: none;
   padding: 0;
   margin: 0 0 2.5rem 0;
 }
 
-/* Punktene starter skjult */
 .precision-list li {
   position: relative;
   font-size: 1.3rem;
@@ -781,10 +747,9 @@ section {
   transform: translateY(40px);
   transition: all 0.8s ease-out;
   margin-bottom: 1.2rem;
-  padding-left: 28px; /* plass til prikk */
+  padding-left: 28px;
 }
 
-/* Liten hvit prikk */
 .precision-list li::before {
   content: "";
   position: absolute;
@@ -799,7 +764,6 @@ section {
   transition: transform 0.6s ease-out;
 }
 
-/* Når punktet vises */
 .precision-list li.visible {
   opacity: 1;
   transform: translateY(0);
@@ -808,7 +772,6 @@ section {
   transform: scale(1);
 }
 
-/* Sitat-tekst etter punktlisten */
 .precision-quote {
   font-size: 1.2rem;
   margin-top: 2rem;
@@ -837,7 +800,6 @@ section {
   margin: 0 auto 3rem auto;
 }
 
-/* Bilde med glød, fader inn men beholder mørk bakgrunnseffekt */
 .coop-image {
   width: 100%;
   max-width: 700px;
@@ -847,13 +809,11 @@ section {
   transition: opacity 1.5s ease, transform 1.5s ease, filter 0.3s linear;
 }
 
-/* Når seksjonen er synlig */
 .section-cooperation.visible .coop-image {
   opacity: 1;
   transform: scale(1);
 }
 
-/* Teksten */
 .coop-title {
   font-size: 2rem;
   font-weight: 900;
@@ -951,7 +911,6 @@ section {
   min-height: 130vh;
 }
 
-/* Båten (står stille) */
 .drift-ship {
   width: 80%;
   max-width: 1200px;
@@ -976,7 +935,6 @@ section {
   transition: transform 4s cubic-bezier(0.25, 1, 0.3, 1), opacity 2s ease;
 }
 
-/* Når seksjonen kommer i view */
 .section-driftoff.visible .drift-box {
   opacity: 1;
   transform: translateX(-50%) translateY(446px);
@@ -985,12 +943,11 @@ section {
   position: relative;
   width: 100%;
   display: flex;
-  justify-content: center; /* sentrerer båt */
+  justify-content: center;
   align-items: center;
   overflow: visible;
 }
 
-/* Teksten under båten */
 .drift-text {
   max-width: 650px;
   margin: 2rem auto 0;
@@ -1046,7 +1003,6 @@ section {
   margin-bottom: 1.5rem;
 }
 
-/* Skjult innhold */
 .tech-hidden {
   display: none;
   font-size: 1.5rem;
@@ -1054,7 +1010,6 @@ section {
   margin-top: 1rem;
 }
 
-/* Knapp */
 .tech-toggle {
   display: block;
   margin: 2rem auto 0 auto;
@@ -1082,7 +1037,6 @@ section {
   line-height: 1.7;
 }
 
-/* Tittel */
 .future-title {
   font-size: 3rem;
   font-weight: 900;
@@ -1090,7 +1044,6 @@ section {
   text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Intro */
 .future-intro {
   max-width: 650px;
   margin: 0 auto 4rem;
@@ -1139,7 +1092,6 @@ section {
   overflow: hidden;
 }
 
-/* Tekst over bildet */
 .belowwaves-wrapper {
   position: relative;
   z-index: 2;
@@ -1161,16 +1113,15 @@ section {
   text-align: left;
 }
 
-/* --- Bakgrunnsbilde nederst, med riktig proporsjon --- */
 .belowwaves-image {
   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: auto; /* 👈 behold naturlig bredde */
-  height: auto; /* 👈 behold naturlig høyde */
-  min-width: 100%; /* 👈 Garanterer stort bilde */
-  max-width: none; /* 👈 Hindrer at det krympes for mye */
+  width: auto;
+  height: auto;
+  min-width: 100%;
+  max-width: none;
   opacity: 0.1;
   z-index: 1;
   pointer-events: none;
@@ -1224,7 +1175,6 @@ section {
   letter-spacing: 0.1em;
 }
 
-/* FIX: changed .footer a → .oss-footer a so it matches your actual footer */
 .oss-footer a {
   color: #fff;
   text-decoration: none;
@@ -1277,11 +1227,11 @@ section {
     top: 35%;
     left: 50%;
     transform: translateX(-50%);
-    width: 90%; /* redusert fra 100% for å gi plass */
-    max-width: 90vw; /* sikrer at den ikke går utenfor */
+    width: 90%;
+    max-width: 90vw;
     font-size: 2rem;
     text-align: center;
-    padding: 0 1rem; /* padding i stedet for margin */
+    padding: 0 1rem;
   }
 
   .special-step {
@@ -1289,14 +1239,14 @@ section {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: calc(100% - 15rem); /* trekker fra margin på begge sider */
-    max-width: calc(100vw - 2rem); /* sikrer at den ikke går utenfor */
+    width: calc(100% - 15rem);
+    max-width: calc(100vw - 2rem);
     padding: 4rem 4rem;
-    margin: 0; /* fjernet margin siden vi bruker width calc */
+    margin: 0;
     opacity: 0 !important;
     pointer-events: none;
     transition: none !important;
-    box-sizing: border-box; /* viktig! */
+    box-sizing: border-box;
   }
 
   .scrollytelling h1 {
@@ -1317,7 +1267,7 @@ section {
     flex-direction: column;
     text-align: center;
     padding: 3rem 2rem;
-    position: relative; /* nødvendig for at absolute skal følge seksjonen */
+    position: relative;
   }
 
   .text-wrapper {
@@ -1339,9 +1289,7 @@ section {
     transform: translate(-50%, -50%);
     width: 90%;
     max-width: 360px;
-    /* Dette er hemmeligheten: */
-    max-height: 28vh; /* så den ikke blir gigantisk */
-
+    max-height: 28vh;
     background: rgba(13, 59, 102, 0.85);
     backdrop-filter: blur(6px);
     padding: 1.2rem;
@@ -1355,7 +1303,6 @@ section {
     padding: 0;
   }
 
-  /* Fjern lyspære på mobil */
   .popup-box::before {
     display: none;
   }
@@ -1380,7 +1327,7 @@ section {
     position: absolute;
     left: 50%;
     top: 0;
-    transform: translateX(-150%) scale(1); /* 👈 samme som desktop */
+    transform: translateX(-150%) scale(1);
     width: 90%;
     max-width: 400px;
     opacity: 0;
@@ -1388,9 +1335,8 @@ section {
     filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.3));
   }
 
-  /* VIKTIG: Denne mangler på mobil! */
   .section-life.visible .ship-image {
-    transform: translateX(-50%) scale(1); /* 👈 samme senterposisjon som desktop */
+    transform: translateX(-50%) scale(1);
     opacity: 1;
   }
 
@@ -1495,7 +1441,6 @@ section {
     display: none !important;
   }
 
-  /* For sikkerhet: Skjul linjer og diamanter hvis de skulle rendres */
   .depth-line,
   .depth-diamond {
     display: none !important;
@@ -1589,7 +1534,7 @@ section {
     position: relative;
     top: auto;
     left: auto;
-    transform: none !important; /* fjern animasjonsposisjon */
+    transform: none !important;
     opacity: 1 !important;
     font-size: 2.2rem;
 
@@ -1600,13 +1545,11 @@ section {
     text-align: center;
   }
 
-  /* Sentrer tittelen over bildet */
   .drift-wrapper {
     flex-direction: column;
     align-items: center;
   }
 
-  /* Unngå gigantisk min-height på mobil */
   .section-driftoff {
     min-height: auto;
     padding: 3rem 2rem;
@@ -1616,7 +1559,6 @@ section {
     font-size: 17px;
   }
 
-  /* Bilde skaleres fint */
   .drift-ship {
     width: 100%;
     max-width: 450px;
@@ -1629,7 +1571,6 @@ section {
     margin: 0 auto;
   }
 
-  /* Teksten skal fortsatt fade inn */
   .section-driftoff.visible .drift-text {
     opacity: 1;
     transform: translateY(0);
@@ -2005,13 +1946,11 @@ section {
     transform: none !important;
   }
 
-  /* Tittel */
   .precision-title {
     font-size: 1.6rem;
     text-align: center;
   }
 
-  /* Intro-tekst */
   .precision-intro {
     font-size: 15px;
     max-width: 365px;
@@ -2020,34 +1959,26 @@ section {
     padding: 0 0.5rem;
   }
 
-  /* LISTE */
   .precision-list {
     list-style: disc !important;
     padding-left: 1.5rem !important;
     margin: 0;
   }
 
-  /* ---- VIKTIG ----
-     SLÅ AV DESKTOP-ANIMASJON,
-     OG BRUK FADE-IN PÅ LI I STEDET
-  */
   .precision-list li {
     font-size: 15px !important;
     max-width: 365px;
     margin: 0.8rem 0.5rem;
 
-    /* 🔥 Slå AV ALLE former for animasjon */
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
   }
 
-  /* Fjern den gamle prikkanimasjonen */
   .precision-list li::before {
     display: none !important;
   }
 
-  /* Sitat */
   .precision-quote {
     font-size: 15px;
     max-width: 365px;

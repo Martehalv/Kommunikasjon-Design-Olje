@@ -1,3 +1,5 @@
+// --- Scrollytelling seksjon animasjon ---
+
 const section = document.querySelector(".scrollytelling");
 const steps = section.querySelectorAll(".step");
 const textDisplay = section.querySelector(".text-display");
@@ -10,7 +12,6 @@ window.addEventListener("scroll", () => {
   const sectionHeight = section.offsetHeight;
   const sectionBottom = sectionTop + sectionHeight;
 
-  // utenfor hele seksjonen → skjul alt
   if (y < sectionTop || y > sectionBottom) {
     textDisplay.style.opacity = 0;
     steps.forEach((s) => s.classList.remove("active"));
@@ -50,7 +51,7 @@ window.addEventListener("scroll", () => {
 const popup = document.getElementById("rlwi-info");
 const rlwiWord = document.querySelector(".rlwi");
 
-// --- Popup-boksen ---
+// popup-boksen
 rlwiWord.addEventListener("click", (e) => {
   popup.style.display = popup.style.display === "block" ? "none" : "block";
   e.stopPropagation();
@@ -166,7 +167,6 @@ checkExtractionVisibility();
 // --- Depth Section (måleboks + tekst) ---
 
 document.addEventListener("DOMContentLoaded", () => {
-  // --- Depth Section (måleboks + tekst) ---
   const depthSection = document.querySelector(".section-depth");
 
   if (depthSection) {
@@ -315,7 +315,7 @@ techToggle.addEventListener("click", () => {
   }
 });
 
-/* --- GLOBAL FADE-IN FOR LONG TEXT BLOCKS --- */
+/* --- Global fade-in for tekst --- */
 const fadeEls = document.querySelectorAll(".fade-in");
 
 function handleFadeIn() {
